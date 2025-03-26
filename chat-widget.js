@@ -30,7 +30,7 @@
     widget.style.borderRadius = '50%';
     widget.style.cursor = 'pointer';
     widget.style.boxShadow = '0 0 10px rgba(0,0,0,0.1)';
-    widget.innerHTML = '<img src="' + config.branding.logo + '" style="width: 100%; height: 100%; border-radius: 50%;">';
+    widget.innerHTML = '<img src=\"' + config.branding.logo + '\" style=\"width: 100%; height: 100%; border-radius: 50%;\">';
     document.body.appendChild(widget);
 
     // Erstelle iFrame bei Klick
