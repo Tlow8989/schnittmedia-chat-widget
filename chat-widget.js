@@ -1,4 +1,4 @@
-// chat-widget.js - Selbstgehosteter Chat Widget Code (Basierend auf Wayne Simpsons Version)
+// chat-widget.js - Selbstgehosteter Chat Widget Code für schnitt.media
 
 (function () {
     const config = window.ChatWidgetConfig || {};
@@ -30,7 +30,7 @@
     widget.style.borderRadius = '50%';
     widget.style.cursor = 'pointer';
     widget.style.boxShadow = '0 0 10px rgba(0,0,0,0.1)';
-    widget.innerHTML = '<img src=\"' + config.branding.logo + '\" style=\"width: 100%; height: 100%; border-radius: 50%;\">';
+    widget.innerHTML = '<img src="' + config.branding.logo + '" style="width: 100%; height: 100%; border-radius: 50%;">';
     document.body.appendChild(widget);
 
     // Erstelle iFrame bei Klick
@@ -45,12 +45,12 @@
             <html>
             <head>
                 <style>
-                    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: ${config.style.backgroundColor || '#ffffff'}; }
-                    button { padding: 10px 15px; background-color: ${config.style.primaryColor || '#f4d03f'}; color: white; border: none; border-radius: 4px; cursor: pointer; }
+                    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: ${config.style.backgroundColor}; color: ${config.style.fontColor}; }
+                    button { padding: 10px 15px; background-color: ${config.style.primaryColor}; color: white; border: none; border-radius: 4px; cursor: pointer; }
                 </style>
             </head>
             <body>
-                <h3>${config.branding.welcomeText || 'Wie können wir helfen?'}</h3>
+                <h3>${config.branding.welcomeText}</h3>
                 <textarea id="userMessage" rows="4" style="width: 100%; padding: 5px;"></textarea><br><br>
                 <button id="sendMessage">Nachricht senden</button>
                 <div id="responseMessage" style="margin-top: 20px;"></div>
@@ -64,7 +64,7 @@
                             },
                             body: JSON.stringify({
                                 message: userMessage,
-                                route: '${config.webhook.route || 'general'}'
+                                route: '${config.webhook.route}'
                             })
                         }).then(response => response.json())
                           .then(data => {
